@@ -17,6 +17,9 @@ const version = "v1"
 
 func main() {
 	log.Printf("gd-demo-7-web %s starting on :8080", version)
+	// This branch never starts: it exists to show how a release that cannot
+	// run is reported while the application is scaled to zero.
+	log.Fatal("broken on purpose: this branch never serves")
 
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		start := time.Now()
